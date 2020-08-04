@@ -2,13 +2,12 @@
 Displays interactive data like public transportation, supermarkets and apartments available for rent in the city of Leipzig.
 
 Transportation and supermarkets are based on [OpenStreetMap's](https://www.openstreetmap.org) data as pbf files.
-Available apartments are scraped from 3 different sites (immobilienscout24.de, immowelt.de, immonet.de)
+Available apartments are scraped from 3 different sites ([immobilienscout24](www.immobilienscout24.de), [immowelt](www.immowelt.de), [immonet](www.immonet.de))
 
 ![preview image](https://imgur.com/8Ggnpyi.png)
 
 
-
-
+# [interactive example](https://korn-alex.github.io/properties_map/demo)
 
 
 
