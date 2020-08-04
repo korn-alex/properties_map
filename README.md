@@ -215,7 +215,7 @@ Right checkboxes select operations.
 
 Updates radius, intensity and blur of all points of this layer.
 
-![controls demo gif](https://imgur.com/nFYFOFD.gif)
+[controls demo gif](https://imgur.com/Ah7GTYj.gifv)
 
 
 
