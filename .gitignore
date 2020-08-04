@@ -1,0 +1,13 @@
+*.pbf
+*.sql
+*.ipynb
+data/settings.json
+data/settings2.json
+properties_map/helper.py
+properties_map/osrm.py
+busbahn.py
+debug.py
+generate_foot_docker_backend.ps1
+needed.txt
+start_docker_backend.ps1
+start_docker_frontend.ps1

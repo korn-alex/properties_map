@@ -1,0 +1,466 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  #map {
+    /* configure the size of the map */
+    width: 100%;
+    height: 100%;
+  }
+  .info {
+        padding: 6px 8px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+    }
+    .info h4 {
+        margin: 0 0 5px;
+        color: #777;
+    }
+    .leaflet-container a.toggle-layer {
+        color: black;
+        text-decoration: none;
+        margin-right: 30px;
+        width: 5px;
+    }
+    /* a.toggle-layer {
+        
+    } */
+    /* input[type=checkbox] {  
+        display: none;  
+    }  
+      
+    input[type=checkbox]:before {  
+        font-family: FontAwesome;  
+        display: inline-block;  
+    }   */
+    /* radio1 */  
+    /* unchecked icon */  
+      
+    /* input[type=checkbox]:before {  
+        content: "\f1db";  
+        letter-spacing: 10px;  
+    }   */
+    /* checked icon */  
+/*       
+    input[type=checkbox]:checked:before {  
+        letter-spacing: 5px;  
+        content: "\f192";  
+    }  
+*/
+    /* .toggle-container {
+        display: inline;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      } */
+      
+      /* Hide the browser's default checkbox */
+      /* .toggle-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      } */
+      
+      /* Create a custom checkbox */
+      /* .checkmark {
+        content: "\f204";  
+        letter-spacing: 10px;
+        font-family: FontAwesome;
+        pfosition: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+      } */
+      
+      /* On mouse-over, add a grey background color */
+      /* .toggle-container:hover input ~ .checkmark {
+        background-color: #ccc;
+      } */
+      
+      /* When the checkbox is checked, add a blue background */
+      /* .toggle-container input:checked ~ .checkmark {
+        background-color: #2196F3;
+      } */
+      
+      /* Create the checkmark/indicator (hidden when not checked) */
+      /* .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      } */
+      
+      /* Show the checkmark when checked */
+      /* .toggle-container input:checked ~ .checkmark:after {
+        display: block;
+      } */
+      
+      /* Style the checkmark/indicator */
+      /* .toggle-container .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      } */
+
+
+    /* The slider itself */
+    .heat-slider {
+        -webkit-appearance: none;  
+        appearance: none;
+        height: 10px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+    .heat-slider:hover {
+        opacity: 1;
+    }
+    .heat-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 15px; 
+        height: 15px;
+        background: black;
+        cursor: grab;
+    }
+
+    .heat-slider::-moz-range-thumb {
+        width: 15px; 
+        height: 15px;
+        background: black;
+        cursor: grab;
+    }
+    .mycheckbox{
+        float: right;
+    }
+    .preview-container {
+        /* width: 96%; */
+        /* height: 95%; */
+        position: absolute;
+        top: 10px;
+        left: 39px;
+        right: 49px;
+        bottom: 25px;
+        margin: auto;
+        z-index: 1000;
+        pointer-events: none;
+      }
+
+    .preview-image{
+        max-width: 100%;
+        max-height: 87%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* pointer-events: all; */
+
+    }
+    .preview-image > img {
+        /* max-width: 100%; */
+        max-height: 100%;
+        object-fit: cover;
+    
+    }
+    .thumbnails {
+        bottom: 10px;
+        position: absolute;
+        pointer-events: all;
+    }
+    .thumbnails > img {
+        height: 100px;
+        margin-right: 2px;
+        border: double;
+    }
+    .home_default i:last-child{
+        /* color: rgb(181, 255, 71); */
+        color: black;
+    }
+    .home_default i:first-child {
+        color: rgb(71, 71, 71);
+        /* color: white; */
+        /* color: #333; */
+    }
+    .public-stop i:first-child{
+        color: #f1ff85;
+    }
+    .bus-icon i:last-child{
+        color: black;
+    }
+    .tram-icon i:last-child{
+        color: #090086;
+    }
+    .supermarket i:last-child{
+        /* color: rgb(181, 255, 71); */
+        color: black;
+    }
+    .supermarket i:first-child {
+        color: #00ceff;
+        /* color: white; */
+        /* color: #333; */
+    }
+    .control-expander i:first-child {
+        color: white;
+    }
+    .control-expander i:last-child {
+        color: black;
+    }
+    .control-button i:first-child {
+        /* color: rgb(71, 71, 71); */
+        /* color: white; */
+        color: #efefef
+    }
+    .control-button-disabled i:first-child {
+        /* color: white; */
+        color: #efefef
+        /* color: rgb(71, 71, 71); */
+    }
+    .control-button i:last-child {
+        /* color: #c0f3ff; */
+        color: black;
+    }
+    .control-button-disabled i:last-child {
+        /* color: #8b989b; */
+        color: #b5b5b5;
+    }
+    /* .home_default > section{
+        color: black;
+    } */
+
+    .home_immonet i:last-child{
+        color: #009acf;
+    }
+    .home_immobilienscout24 i:last-child {
+        color: #00ffd0
+    }
+    .home_immowelt i:last-child{
+        color: #ffcc00
+    }
+
+    /* .home_default > span > i:last-child {
+        font-size: 58px;
+    } */
+    /* .categorychecklist li {
+    display: inline-block;
+    } */
+	.popup-title {
+		font-weight: bold;
+	}
+    .popup-content > table {
+        width: 100%;
+    }
+    .popup-content > table > caption {
+        font: icon;
+		font-weight: bold;
+    }
+    .popup-delete-btn {
+        position: absolute;
+        top: 3px;
+        right: 22px;
+        border: none;
+        background: transparent;
+        color: rgb(197, 53, 29);
+    }
+    .missing-marker-done {
+        font-size: 'xxx-large';
+        width: 20%;
+        height: 7%;
+        margin: auto;
+        display: block;
+        pointer-events: all;
+    }
+    .missing-marker-cancel {
+        font-size: 'xxx-large';
+        width: 20%;
+        height: 7%;
+        margin: auto;
+        display: block;
+        pointer-events: all;
+    }
+    div.table-title {
+        text-align: center;
+        font-weight: bold;
+    }
+    div.leaflet-control-layers-expanded {
+        background: white;
+        box-shadow: black;
+        /* border-radius: 25px; */
+    }
+    div.leaflet-control-layers:not(.leaflet-control-layers-expanded){
+        background: center;
+        box-shadow: none;
+        /* border-radius: 29px; */
+        /* position: relative; */
+    }
+    .leaflet-control-layers-expanded span.leaflet-control-layers-list {
+        display: inline;
+        position: relative;
+    }
+    .leaflet-control-layers-expanded .control-buttons-div{
+        display: flex;
+    }
+    section.control-settings-table table {
+        /* border: ridge; */
+        /* width: 100%; */
+        max-height: 35vh;
+        overflow-y: auto;
+        /* display: table; */
+        display: block;
+        text-align: right;
+        /* float: right; */
+    }
+    /* table.missing-address{ */
+        /* display: table; */
+        /* width: -webkit-fill-available; */
+    /* } */
+    section.control-settings-table caption {
+        font-weight: bold;
+    }
+    /* section.control-settings-table tr {
+        display: block;
+    } */
+    /* section.control-settings-table caption {
+        display: block;
+    } */
+    section.control-settings-table td {
+        /* display: inline-block; */
+        /* display: inline-table;
+        */
+        width: 250px;
+    }
+    /* section.control-settings-table table td:first-child{
+        margin-left: 0;
+        width: 100%;
+        margin-right: auto;
+    } */
+    
+    section.control-settings-table table td:last-child{
+        width: 26px;
+    }
+    /* .add-address i:last-child {
+        color: #c0f3ff;
+    }
+    .undo-removed i:last-child {
+        color: #c0f3ff;
+    } */
+    .tooltip-container {
+        position: relative;
+    }
+    .tooltip {
+        /* position: relative; */
+        display: table-cell;
+        /* width: 100%; */
+        /* border-bottom: 1px dotted black; */
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 100%;
+        background-color: #152b38ba;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        z-index: 1;
+        display: block;
+        position: absolute;
+        left: 0;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    /* #settings-div{
+        font-size: smaller;
+    } */
+    /* #settings-div section{
+        font-size: small;
+    } */
+    .leaflet-control-layers-expanded .leaflet-control-layers-list .update-btn{
+        display: inline;
+    }
+    .update-btn i:last-child{
+        /* color: #c0f3ff; */
+        color: black;
+    }
+    .update-btn i:first-child{
+        /* color: #c0f3ff; */
+        color: #efefef;
+    }
+    .update-btn-disabled i:last-child{
+        /* color: #c0f3ff; */
+        color: #b5b5b5;
+    }
+     /* The snackbar - position it at the bottom and in the middle of the screen */
+    #snackbar {
+        visibility: hidden; /* Hidden by default. Visible on click */
+        min-width: 250px; /* Set a default minimum width */
+        margin-left: -125px; /* Divide value of min-width by 2 */
+        background-color: #333; /* Black background color */
+        color: #fff; /* White text color */
+        text-align: center; /* Centered text */
+        border-radius: 2px; /* Rounded borders */
+        padding: 16px; /* Padding */
+        position: fixed; /* Sit on top of the screen */
+        z-index: 1; /* Add a z-index if needed */
+        left: 50%; /* Center the snackbar */
+        top: 30px; /* 30px from the bottom */
+        font-size: large;
+    }
+  
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #snackbar.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+        However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    #snackbar.show-long {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+        However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+        animation: fadein 0.5s, fadeout 0.5s 4.5s;
+    }
+
+    /* Animations to fade the snackbar in and out */
+    @-webkit-keyframes fadein {
+        from {top: 0; opacity: 0;}
+        to {top: 30px; opacity: 1;}
+    }
+    
+    @keyframes fadein {
+        from {top: 0; opacity: 0;}
+        to {top: 30px; opacity: 1;}
+    }
+    
+    @-webkit-keyframes fadeout {
+        from {top: 30px; opacity: 1;}
+        to {top: 0; opacity: 0;}
+    }
+    
+    @keyframes fadeout {
+        from {top: 30px; opacity: 1;}
+        to {top: 0; opacity: 0;}
+    } 

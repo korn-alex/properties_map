@@ -1,0 +1,1 @@
+powershell -file "windows_server.ps1"

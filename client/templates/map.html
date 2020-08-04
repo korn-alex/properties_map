@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet", href="{{url_for('static',filename='css/main.css')}}"/>
+    <link rel="stylesheet", href="{{url_for('static',filename='js/leaflet/leaflet.css')}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{{url_for('static',filename='js/leaflet/leaflet-src.js')}}"></script>
+    <script src="{{url_for('static',filename='js/Leaflet.heat-gh-pages/src/HeatLayer automax_fixed_radius.js')}}"></script>
+    <script src="{{url_for('static',filename='js/helper.js')}}"></script>
+    <script src="{{url_for('static',filename='js/heatmap.js')}}"></script>
+    <script src="{{url_for('static',filename='js/overlay.js')}}"></script>
+    <script src="{{url_for('static',filename='js/apartment.js')}}"></script>
+  </head>
+     
+  <body>
+      <div id="map">
+          <div class="preview-container">
+              <div class="preview-image">
+                  <img id="preview" src=""/>
+              </div>
+              <div id="thumbnails" class="thumbnails"></div>
+              <div id="snackbar" class=""></div>
+          </div>
+          
+      </div>
+      
+      <script>
+        // initialize Leaflet
+        var map = L.map('map').setView({lon: 12.35793992, lat: 51.32525005}, 14);
+        map.createPane('heatmap');
+        map.getPane('heatmap').style.zIndex = 450;
+        map.getPane('heatmap').style.pointerEvents = 'none';
+
+        // add the OpenStreetMap tiles
+        // international
+        // 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        // german tileserver
+        var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
+        // show the scale bar on the lower left corner
+        L.control.scale().addTo(map);
+
+        // var heatmap_points_green_area = geoJson2heat(points_green_areas2, 0.1, 1);
+        let requests = [
+          ['Line',0],
+          ['Stops',0],
+           ['Line',20],
+           ['Stops',20],
+           ['Line',31],
+           ['Stops',31],
+           ['Line',45],
+           ['Stops',45],
+          // ['Area',0],
+          ['Amenity',0],
+        ]
+        var co = new LayerControlOverlay(map, requests);
+        var controlApartments = L.control.apartments({position:'topright'}).addTo(map);
+      </script>
+  </body>
+  </html>

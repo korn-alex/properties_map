@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet", href="client/static/css/main.css"/>
+    <link rel="stylesheet", href="client/static/js/leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="client/static/js/leaflet/leaflet-src.js"></script>
+   <script src="client/static/js/Leaflet.heat-gh-pages/src/HeatLayer automax_fixed_radius.js"></script>
+   <script src="client/static/js/helper.js"></script>
+   <script src="client/static/js/heatmap.js"></script>
+   <script src="client/static/js/overlay.js"></script>
+    <script src="client/static/js/apartment.js"></script>
+    <script src="demo_data.js"></script>
+    <script src="demo_settings.js"></script>
+  </head>
+  <body>
+      <div id="map">
+          <div class="preview-container">
+              <div class="preview-image">
+                  <img id="preview" src=""/>
+              </div>
+              <div id="thumbnails" class="thumbnails"></div>
+              <div id="snackbar" class=""></div>
+          </div>
+      </div>
+      <script>
+        var map = L.map('map').setView({lon: 12.35793992, lat: 51.32525005}, 14);
+        map.createPane('heatmap');
+        map.getPane('heatmap').style.zIndex = 450;
+        map.getPane('heatmap').style.pointerEvents = 'none';
+        var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
+        L.control.scale().addTo(map);
+        var co = new LayerControlOverlay(map, undefined, demo_controlOverlay_settings, demo_data);
+        var controlApartments = L.control.apartments(demo_apartment_settings, demo_apartments, {position:'topright'}).addTo(map);
+        controlApartments._loadSettings(demo_apartment_settings);
+        controlApartments.addApartments(demo_apartments, demo_apartment_settings.missingAddresses);
+        </script>
+  </body>
+  </html>
